@@ -66,6 +66,7 @@ environments {
     development {
         grails.logging.jul.usebridge = true
         grails.serverURL = "http://localhost:8080"
+        steam.api.key = "D0428727C4FB8C9F69DEA57C06F13834"
     }
     production {
         grails.logging.jul.usebridge = false
