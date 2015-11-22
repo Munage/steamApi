@@ -12,6 +12,26 @@
 </head>
 
 <body>
-    <h1>Hello</h1>
+    <h1>Games Playes - Past 2 weeks</h1>
+
+
+    <table>
+        <thead>
+            <tr>
+                <td>Game</td>
+                <td>Time Played</td>
+                %{--<td></td>--}%
+            </tr>
+
+            <g:each in="${result}">
+                <tr>
+                    <td>${it.name}</td>
+                    <td>${it.playtime}</td>
+                    %{--<td>${it["img_logo_url"]}</td>--}%
+                </tr>
+            </g:each>
+
+        </thead>
+    </table>
 </body>
 </html>
