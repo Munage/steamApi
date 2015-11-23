@@ -14,7 +14,7 @@ class HomeController {
 //        https://developer.valvesoftware.com/wiki/Steam_Web_API#GetRecentlyPlayedGames_.28v0001.29
 //        http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=XXXXXXXXXXXXXXXXX&steamid=76561197960434622&format=json
 
-        Map q = [key: grailsApplication.config.steam.api.key, steamid:"76561198041210011", format:"json"]
+        Map q = [key: grailsApplication.config.steam.api.key, steamid:params.steamId ?: "76561198041210011", format:"json"]
         def result = restApiService.request("http://api.steampowered.com", "/IPlayerService/GetRecentlyPlayedGames/v0001", q)
 
         List final_result = []
