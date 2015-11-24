@@ -1,19 +1,15 @@
 package timeUtils
 
+import java.util.concurrent.TimeUnit
+
 class TimeUtils {
     static String prettifyTime(int time){
-        def hours = time / 60
-        def minutes = time % 60
 
-        if(hours < 10){
-            hours = "0" + hours
-        }
+        long hours = TimeUnit.MINUTES.toHours(time)
+        long remainMinute = time - TimeUnit.HOURS.toMinutes(hours)
+        String result = String.format("%02d", hours) + ":" + String.format("%02d", remainMinute);
 
-        if (minutes < 10){
-            minutes = "0" + minutes
-        }
-
-        return hours + "hrs " + minutes + "mins"
+        return result
     }
 
 }

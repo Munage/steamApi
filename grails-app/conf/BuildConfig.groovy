@@ -43,7 +43,6 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 
         // runtime 'mysql:mysql-connector-java:5.1.20'
-        compile "joda-time:joda-time:1.4"
         compile "org.openid4java:openid4java:1.0.0"
         compile "org.codehaus.groovy.modules.http-builder:http-builder:0.7"
         runtime 'postgresql:postgresql:8.4-702.jdbc3'
@@ -53,7 +52,6 @@ grails.project.dependency.resolution = {
         runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.8.3"
         runtime ":resources:1.1.6"
-        compile ":joda-time:1.4"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
