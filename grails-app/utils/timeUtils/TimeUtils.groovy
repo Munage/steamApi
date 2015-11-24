@@ -1,15 +1,9 @@
 package timeUtils
 
-import org.joda.time.Period
-
-
 class TimeUtils {
     static String prettifyTime(int time){
-        Long millisec = time*60*1000;
-        Period period = new Period(millisec);
-
-        def hours = period.hours
-        def minutes = period.minutes
+        def hours = time / 60
+        def minutes = time % 60
 
         if(hours < 10){
             hours = "0" + hours
