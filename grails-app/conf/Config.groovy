@@ -62,11 +62,16 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
+steam {
+    api.url = "http://api.steampowered.com"
+    api.key = "D0428727C4FB8C9F69DEA57C06F13834"
+
+}
+
 environments {
     development {
         grails.logging.jul.usebridge = true
         grails.serverURL = "http://localhost:8080"
-        steam.api.key = "D0428727C4FB8C9F69DEA57C06F13834"
     }
     production {
         grails.logging.jul.usebridge = false
