@@ -65,7 +65,7 @@ grails.hibernate.cache.queries = false
 steam {
     api.url = "http://api.steampowered.com"
     api.key = "D0428727C4FB8C9F69DEA57C06F13834"
-
+    images.url = "http://media.steampowered.com/steamcommunity/public/images/apps"
 }
 
 environments {

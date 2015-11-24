@@ -6,6 +6,22 @@ class SteamGameService {
 
     def steamUserService
 
+    def getMyRecentlyPlayed(String id){
+        def result = steamUserService.getRecentlyPlayed(id)
+        def final_result = [:]
+
+        result["response"]["games"].each {
+            final_result.put(it["name"], it)
+        }
+
+        //change the format of the time to hours and minutes
+        final_result.each {
+            it.value["playtime_2weeks"] = TimeUtils.prettifyTime(it.value["playtime_2weeks"])
+        }
+
+        return final_result
+    }
+
     def getFriendsGamesPlayed2weeks(Map friendList) {
         if(!friendList){
             return null

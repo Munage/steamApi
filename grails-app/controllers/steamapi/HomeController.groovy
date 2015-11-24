@@ -1,27 +1,20 @@
 package steamapi
 
 import steam.oauth.SteamOpenID
-import timeUtils.TimeUtils
 
 class HomeController {
 
-    def  restApiService
     def steamUserService
     def steamGameService
 
     def index() {
         String userId = params.steamId ?: "76561198041210011"
 
-        def userRecentlyPlayed = steamUserService.getRecentlyPlayed(userId)
+        def userRecentlyPlayed = steamGameService.getMyRecentlyPlayed(userId)
         def friendList = steamUserService.getFriendsList(userId)
-        List final_result = []
         Map allGamesPlayed = steamGameService.getFriendsGamesPlayed2weeks(friendList)
 
-        userRecentlyPlayed["response"]["games"].each {
-            final_result.add([name:it["name"], playtime:TimeUtils.prettifyTime(it["playtime_2weeks"]), logo:it["img_logo_url"]])
-        }
-
-        [result:final_result, friendsGames:allGamesPlayed]
+        [result:userRecentlyPlayed, friendsGames:allGamesPlayed]
     }
 
     def login(){

@@ -9,14 +9,16 @@
     <table>
         <thead>
             <tr>
+                <td></td>
                 <td>Game</td>
                 <td>Time Played</td>
+
             </tr>
             <g:each in="${result}">
                 <tr>
-                    <td>${it.name}</td>
-                    <td>${it.playtime}</td>
-                    %{--<td>${it["img_logo_url"]}</td>--}%
+                    <td><img src="${grailsApplication.config.steam.images.url + "/" + it.value.appid + "/" + it.value.img_logo_url + ".jpg"}"></td>
+                    <td>${it?.key}</td>
+                    <td>${it?.value.playtime_2weeks}</td>
                 </tr>
             </g:each>
 
@@ -27,11 +29,13 @@
     <table>
         <thead>
         <tr>
+            <td></td>
             <td>Game</td>
             <td>Time Played</td>
         </tr>
         <g:each in="${friendsGames}">
             <tr>
+                <td><img src="${grailsApplication.config.steam.images.url + "/" + it.value.appid + "/" + it.value.img_logo_url + ".jpg"}"></td>
                 <td>${it.key}</td>
                 <td>${it.value.playtime_2weeks}</td>
             </tr>

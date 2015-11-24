@@ -1,5 +1,6 @@
 package steamapi
 
+
 class SteamUserService {
 
     def restApiService
