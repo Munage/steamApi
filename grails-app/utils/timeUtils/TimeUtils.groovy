@@ -19,7 +19,7 @@ class TimeUtils {
             minutes = "0" + minutes
         }
 
-        return hours + ":" + minutes
+        return hours + "hrs " + minutes + "mins"
     }
 
 }
