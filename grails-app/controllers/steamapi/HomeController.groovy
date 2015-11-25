@@ -22,12 +22,12 @@ class HomeController {
 
     def login(){
         SteamOpenID steamOpenID = new SteamOpenID()
-        redirect(url: steamOpenID.login("http://localhost:8080/home/verify"))
+        redirect(url: steamOpenID.login(grailsApplication.config.grails.serverURL + "/home/verify"))
     }
 
     def verify(){
         SteamOpenID steamOpenID = new SteamOpenID()
-        session.steamId = steamOpenID.verify("http://localhost:8080/home/verify", (Map)params)
+        session.steamId = steamOpenID.verify(grailsApplication.config.grails.serverURL + "/home/verify", (Map)params)
         redirect(action: "index")
     }
 }
