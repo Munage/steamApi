@@ -1,21 +1,22 @@
 package steam.oauth;
 
-import org.openid4java.association.AssociationException;
-import org.openid4java.consumer.ConsumerException;
 import org.openid4java.consumer.ConsumerManager;
 import org.openid4java.consumer.VerificationResult;
 import org.openid4java.discovery.DiscoveryException;
 import org.openid4java.discovery.DiscoveryInformation;
 import org.openid4java.discovery.Identifier;
 import org.openid4java.message.AuthRequest;
-import org.openid4java.message.MessageException;
 import org.openid4java.message.ParameterList;
-
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 /**
+ *  ###############################################################
+ *  Code by FernFerret - https://gist.github.com/FernFerret/7692878
+ *  ###############################################################
+ *
  * Steam OpenID Login Helper
  * <p/>
  * In this example, I'm using Spark to handle my request/response.
