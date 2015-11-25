@@ -103,7 +103,6 @@ public class SteamOpenID {
                 String id = verifiedId.getIdentifier();
                 Matcher matcher = STEAM_REGEX.matcher(id);
                 if (matcher.find()) {
-                    System.out.println();
                     return matcher.group(1);
                 }
             }
