@@ -7,7 +7,7 @@
 <body>
 
     <g:if test="${!session.steamId}">
-        <h2>Please sign in with Steam to see game time information</h2>
+        <h2>Please sign in with Steam to see what you and your friends have been playing</h2>
         <g:link controller="home" action="login"><img src="/images/sits_large_border.png"/></g:link>
     </g:if>
     <g:else>
