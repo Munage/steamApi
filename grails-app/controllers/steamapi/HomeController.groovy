@@ -51,6 +51,12 @@ class HomeController {
 
     def logout(){
         session.invalidate()
+        Utilities.removeCookie(response, grailsApplication.config.preference.cookieName)
+        redirect(action: "index")
+    }
+
+    def refresh(){
+        session.invalidate()
         redirect(action: "index")
     }
 }

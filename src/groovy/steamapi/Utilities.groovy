@@ -16,6 +16,13 @@ public class Utilities {
         response.addCookie(c)
     }
 
+    static void removeCookie(response, cookieName){
+        def c = new Cookie(cookieName, "")
+        c.path = '/'
+        c.maxAge = 0
+        response.addCookie(c)
+    }
+
     static boolean checkCookieValue(request, session, cookieIdentifier, sessionIdentifier) {
         boolean foundCookie = false
         request.cookies.each {
