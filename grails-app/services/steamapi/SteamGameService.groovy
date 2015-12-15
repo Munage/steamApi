@@ -6,6 +6,7 @@ class SteamGameService {
 
     def steamUserService
 
+
     def getMyRecentlyPlayed(String id){
         def result = steamUserService.getRecentlyPlayed(id)
         def final_result = [:]

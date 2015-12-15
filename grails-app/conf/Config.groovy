@@ -68,6 +68,8 @@ steam {
     images.url = "http://media.steampowered.com/steamcommunity/public/images/apps"
 }
 
+preference.cookieName = "steam-games-api"
+
 environments {
     development {
         grails.logging.jul.usebridge = true

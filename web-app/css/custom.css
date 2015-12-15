@@ -1,0 +1,13 @@
+.site-wrapper {
+    background-color: #262626;
+}
+
+.site-wrapper h2{
+    color: #f5f5f5;
+}
+.games td {
+    width: 225px;
+    word-wrap: break-word;
+    padding: 0px 5px;
+    color: #f5f5f5;
+}

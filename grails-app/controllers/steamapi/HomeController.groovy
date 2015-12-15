@@ -13,9 +13,26 @@ class HomeController {
             return
         }
 
-        def userRecentlyPlayed = steamGameService.getMyRecentlyPlayed(userId)
-        def friendList = steamUserService.getFriendsList(userId)
-        Map allGamesPlayed = steamGameService.getFriendsGamesPlayed2weeks(friendList)
+        def userRecentlyPlayed
+        if(session.userRecentlyPlayed){
+            userRecentlyPlayed = session.userRecentlyPlayed
+        } else {
+            userRecentlyPlayed = steamGameService.getMyRecentlyPlayed(userId)
+            session.userRecentlyPlayed = userRecentlyPlayed
+        }
+
+        def friendList
+        Map allGamesPlayed
+        if(session.allGamesPlayed){
+            allGamesPlayed = session.allGamesPlayed
+            friendList = session.friendList
+        } else {
+            friendList = steamUserService.getFriendsList(userId)
+            allGamesPlayed = steamGameService.getFriendsGamesPlayed2weeks(friendList)
+
+            session.friendList = friendList
+            session.allGamesPlayed = allGamesPlayed
+        }
 
         [result: userRecentlyPlayed, friendsGames: allGamesPlayed]
     }
@@ -28,6 +45,12 @@ class HomeController {
     def verify(){
         SteamOpenID steamOpenID = new SteamOpenID()
         session.steamId = steamOpenID.verify(grailsApplication.config.grails.serverURL + "/home/verify", (Map)params)
+        Utilities.setCookie(response, grailsApplication.config.preference.cookieName, session.steamId)
+        redirect(action: "index")
+    }
+
+    def logout(){
+        session.invalidate()
         redirect(action: "index")
     }
 }
